@@ -1,0 +1,38 @@
+### import order
+```js
+import React, { useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
+import { useDispatch, useSelector } from 'react-redux'
+import { ... } from 'react...'
+import { ... } from 'semantic-ui-react'
+import { ... } from 'components'
+import { ... } from 'actions/common...'
+import { ... } from './actions'
+```
+
+### hook order
+- i18n -> dispatch -> others -> state -> reducer -> deconstruction
+```js
+const { t } = useTranslation('Hr/leave')
+const dispatch = useDispatch()
+const { params } = useParams()
+const remarkRef = useRef()
+const [state, useState] = useState(false) // 預設值為false
+const needReserve = useSelector(state => state.user.needReserve)
+const initial = useSelector(state => state.order.initial)
+const orderData = useSelector(state => state.order.orderData) || {}
+const { memNum } = orderData 
+```
+
+### Icon props order
+```js
+<Icon
+    link
+    fontFamily
+    name
+    size
+    color
+    className
+    style
+    />
+```
